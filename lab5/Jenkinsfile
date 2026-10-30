@@ -68,20 +68,6 @@ pipeline {
 		}
 	}
 
-	stage('Deploy') {
-		// Runs after a merge to main, never for a pull request build.
-		when { branch 'main' }
-		steps {
-			sshagent(credentials: ['docs-server-ssh']) {
-			        dir('lab5') {
-				sh '''
-					rsync -az --delete docs/_build/html/ \
-					deploy@docs.internal.example.com:/var/www/bms/
-				'''
-				}
-			}
-		}
-	}	
 }
 post {
 	always {
