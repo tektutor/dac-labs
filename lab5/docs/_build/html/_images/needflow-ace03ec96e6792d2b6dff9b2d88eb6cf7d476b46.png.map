@@ -1,0 +1,14 @@
+<map id="needflow" name="needflow">
+<area shape="rect" id="node1" href="requirements/requirements.html#REQ_SOC" target="_top" title="REQ_SOC" alt="" coords="218,224,415,312"/>
+<area shape="rect" id="node2" href="requirements/requirements.html#REQ_LOW_WARN" target="_top" title="REQ_LOW_WARN" alt="" coords="904,224,1073,312"/>
+<area shape="rect" id="node3" href="requirements/requirements.html#REQ_LOG" target="_top" title="REQ_LOG" alt="" coords="1342,224,1502,312"/>
+<area shape="rect" id="node4" href="requirements/specifications.html#SPEC_SOC_LINEAR" target="_top" title="SPEC_SOC_LINEAR" alt="" coords="5,5,215,93"/>
+<area shape="rect" id="node5" href="requirements/specifications.html#SPEC_LOW_THRESHOLD" target="_top" title="SPEC_LOW_THRESHOLD" alt="" coords="628,5,848,93"/>
+<area shape="rect" id="node11" href="requirements/risks.html#RISK_DEEP_DISCHARGE" target="_top" title="RISK_DEEP_DISCHARGE" alt="" coords="615,215,831,321"/>
+<area shape="rect" id="node6" href="requirements/specifications.html#SPEC_LOG_FORMAT" target="_top" title="SPEC_LOG_FORMAT" alt="" coords="1329,5,1515,93"/>
+<area shape="rect" id="node7" href="requirements/tests.html#TC_SOC_RANGE" target="_top" title="TC_SOC_RANGE" alt="" coords="238,5,395,93"/>
+<area shape="rect" id="node8" href="requirements/tests.html#TC_SOC_CLAMP" target="_top" title="TC_SOC_CLAMP" alt="" coords="419,5,604,93"/>
+<area shape="rect" id="node9" href="requirements/tests.html#TC_LOW_BELOW" target="_top" title="TC_LOW_BELOW" alt="" coords="884,5,1093,93"/>
+<area shape="rect" id="node10" href="requirements/tests.html#TC_LOW_EDGE" target="_top" title="TC_LOW_EDGE" alt="" coords="1117,5,1305,93"/>
+<area shape="rect" id="node12" href="requirements/risks.html#RISK_SENSOR_DRIFT" target="_top" title="RISK_SENSOR_DRIFT" alt="" coords="1538,5,1732,93"/>
+</map>
