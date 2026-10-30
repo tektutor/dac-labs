@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+docs/_build/
+docs/_doxygen/
+docs/api/cpp_tree/
