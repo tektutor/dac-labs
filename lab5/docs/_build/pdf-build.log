@@ -1,0 +1,21 @@
+sphinx-build -M latexpdf docs docs/_build -W --keep-going -q -t pdf
+make[1]: Entering directory '/home/jegan/dac-labs/lab5/docs/_build/latex'
+latexmk -pdf -dvi- -ps- -silent 'battery-monitor.tex'
+Rc files read:
+  /etc/LatexMk
+  latexmkrc
+Latexmk: Run number 1 of rule 'pdflatex'
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+Latexmk: Getting log file 'battery-monitor.log'
+Latexmk: Using bibtex to make bibliography file(s).
+Latexmk: Run number 1 of rule 'makeindex battery-monitor.idx'
+Latexmk: Run number 2 of rule 'pdflatex'
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+Latexmk: Getting log file 'battery-monitor.log'
+Latexmk: Using bibtex to make bibliography file(s).
+
+make[1]: Leaving directory '/home/jegan/dac-labs/lab5/docs/_build/latex'

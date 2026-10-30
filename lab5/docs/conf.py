@@ -192,3 +192,13 @@ def setup(app):
     
     add_dynamic_function(app, req_status)
     app.connect("builder-inited", _quiet_needflow)
+
+# -- Lab 5: PlantUML for PDF builds ------------------------------------------
+# Run "sphinx-build ... -t pdf" (the Makefile "pdf" target does this).
+# Sphinx adds its own builder tags only after conf.py runs, so conf.py
+# cannot test for "latex" itself.
+if tags.has("pdf"):
+    extensions.append("sphinxcontrib.plantuml")
+    needs_flow_engine = "plantuml"
+    plantuml = "plantuml"
+    plantuml_latex_output_format = "png"
