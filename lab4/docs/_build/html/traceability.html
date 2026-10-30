@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Traceability &mdash; Battery Monitor 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-data-viewer/jsonview.bundle.css?v=f6ef2277" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_core.css?v=f5b60a78" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_links.css?v=2150a916" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_style.css?v=92936fa5" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/need_toggle.css?v=5c6620df" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/common_css/needstable.css?v=7b67799e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-needs/modern.css?v=c1bc121d" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/sphinx-data-viewer/jsonview.bundle.js?v=18cd53c5"></script>
+      <script src="_static/sphinx-data-viewer/jsonview_loader.js?v=f7ff7e7d"></script>
+      <script src="_static/sphinx-needs/libs/html/sphinx_needs_collapse.js?v=dca66431"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Coverage Gaps" href="coverage.html" />
+    <link rel="prev" title="Test Cases" href="requirements/tests.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Battery Monitor
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/requirements.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/specifications.html">Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="requirements/tests.html">Test Cases</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Traceability</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirement-to-test-matrix">Requirement to test matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#status-roll-up">Status roll-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#impact-of-req-low-warn">Impact of REQ_LOW_WARN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#all-needs">All needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#needs-tagged-warning">Needs tagged warning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#traceability-graph">Traceability graph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#requirement-list">Requirement list</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="coverage.html">Coverage Gaps</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Battery Monitor</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Traceability</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/traceability.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="traceability">
+<h1>Traceability<a class="headerlink" href="#traceability" title="Link to this heading"></a></h1>
+<section id="requirement-to-test-matrix">
+<h2>Requirement to test matrix<a class="headerlink" href="#requirement-to-test-matrix" title="Link to this heading"></a></h2>
+<div class="needstable_wrapper docutils container" id="needtable-traceability-0">
+<table class="NEEDS_TABLE docutils align-default" id="needtable-traceability-0-table_node">
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 37.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+<col style="width: 12.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head needs_col_id" data-col="id" scope="col"><p>ID</p></th>
+<th class="head needs_col_title" data-col="title" scope="col"><p>Title</p></th>
+<th class="head needs_col_status" data-col="status" scope="col"><p>Status</p></th>
+<th class="head needs_col_satisfies_back" data-col="satisfies_back" scope="col"><p>Specifications</p></th>
+<th class="head needs_col_verifies_back" data-col="verifies_back" scope="col"><p>Test cases</p></th>
+<th class="head needs_col_issue" data-col="issue" scope="col"><p>Issue</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="need row-even" data-need-id="REQ_LOG"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOG">REQ_LOG</a></p></td>
+<td class="needs_title"><p>Log voltage samples</p></td>
+<td class="needs_status"><p>draft</p></td>
+<td class="needs_satisfies_back"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOG_FORMAT">SPEC_LOG_FORMAT</a></p></td>
+<td class="needs_verifies_back"><p></p></td>
+<td class="needs_issue"><p><a class="reference external" href="https://issues.example.com/browse/BMS-103">BMS-103</a></p></td>
+</tr>
+<tr class="need row-odd" data-need-id="REQ_LOW_WARN"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOW_WARN">REQ_LOW_WARN</a></p></td>
+<td class="needs_title"><p>Warn on low battery</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_satisfies_back"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOW_THRESHOLD">SPEC_LOW_THRESHOLD</a></p></td>
+<td class="needs_verifies_back"><p><a class="reference internal" href="requirements/tests.html#TC_LOW_BELOW">TC_LOW_BELOW</a><em>; </em><a class="reference internal" href="requirements/tests.html#TC_LOW_EDGE">TC_LOW_EDGE</a></p></td>
+<td class="needs_issue"><p><a class="reference external" href="https://issues.example.com/browse/BMS-102">BMS-102</a></p></td>
+</tr>
+<tr class="need row-even" data-need-id="REQ_SOC"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_SOC">REQ_SOC</a></p></td>
+<td class="needs_title"><p>Report state of charge</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_satisfies_back"><p><a class="reference internal" href="requirements/specifications.html#SPEC_SOC_LINEAR">SPEC_SOC_LINEAR</a></p></td>
+<td class="needs_verifies_back"><p><a class="reference internal" href="requirements/tests.html#TC_SOC_CLAMP">TC_SOC_CLAMP</a><em>; </em><a class="reference internal" href="requirements/tests.html#TC_SOC_RANGE">TC_SOC_RANGE</a></p></td>
+<td class="needs_issue"><p><a class="reference external" href="https://issues.example.com/browse/BMS-101">BMS-101</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="status-roll-up">
+<h2>Status roll-up<a class="headerlink" href="#status-roll-up" title="Link to this heading"></a></h2>
+<div class="needstable_wrapper docutils container" id="needtable-traceability-1">
+<table class="NEEDS_TABLE docutils align-default" id="needtable-traceability-1-table_node">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head needs_col_id" data-col="id" scope="col"><p>ID</p></th>
+<th class="head needs_col_type" data-col="type" scope="col"><p>Type</p></th>
+<th class="head needs_col_status" data-col="status" scope="col"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="need row-even" data-need-id="SPEC_LOW_THRESHOLD"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOW_THRESHOLD">SPEC_LOW_THRESHOLD</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_status"><p>accepted</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="SPEC_SOC_LINEAR"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_SOC_LINEAR">SPEC_SOC_LINEAR</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_status"><p>accepted</p></td>
+</tr>
+<tr class="need row-even" data-need-id="REQ_LOG"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOG">REQ_LOG</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_status"><p>draft</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="SPEC_LOG_FORMAT"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOG_FORMAT">SPEC_LOG_FORMAT</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_status"><p>draft</p></td>
+</tr>
+<tr class="need row-even" data-need-id="REQ_LOW_WARN"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOW_WARN">REQ_LOW_WARN</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_status"><p>open</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="REQ_SOC"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_SOC">REQ_SOC</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_status"><p>open</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<img alt="Requirement and specification status" id="needpie-traceability-0" src="_images/need_pie_65614.svg" />
+</section>
+<section id="impact-of-req-low-warn">
+<h2>Impact of REQ_LOW_WARN<a class="headerlink" href="#impact-of-req-low-warn" title="Link to this heading"></a></h2>
+<figure class="align-center" id="needflow-traceability-0">
+<div class="graphviz"><img src="_images/needflow-f99e89d7d5576b87b11eacc8c45f5db0fe759b38.png" alt="needflow graphviz diagram" usemap="#needflow" class="graphviz" /></div>
+<map id="needflow" name="needflow">
+<area shape="rect" id="node1" href="requirements/requirements.html#REQ_LOW_WARN" target="_top" title="REQ_LOW_WARN" alt="" coords="268,215,436,303"/>
+<area shape="rect" id="node2" href="requirements/specifications.html#SPEC_LOW_THRESHOLD" target="_top" title="SPEC_LOW_THRESHOLD" alt="" coords="5,5,225,93"/>
+<area shape="rect" id="node3" href="requirements/tests.html#TC_LOW_BELOW" target="_top" title="TC_LOW_BELOW" alt="" coords="248,5,456,93"/>
+<area shape="rect" id="node4" href="requirements/tests.html#TC_LOW_EDGE" target="_top" title="TC_LOW_EDGE" alt="" coords="481,5,669,93"/>
+</map><figcaption>
+<p><span class="caption-text">Impact of REQ_LOW_WARN</span><a class="headerlink" href="#needflow-traceability-0" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="all-needs">
+<h2>All needs<a class="headerlink" href="#all-needs" title="Link to this heading"></a></h2>
+<div class="needstable_wrapper docutils container" id="needtable-traceability-2">
+<table class="NEEDS_TABLE docutils align-default" id="needtable-traceability-2-table_node">
+<colgroup>
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+<col style="width: 42.9%" />
+<col style="width: 14.3%" />
+<col style="width: 14.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head needs_col_id" data-col="id" scope="col"><p>ID</p></th>
+<th class="head needs_col_type" data-col="type" scope="col"><p>Type</p></th>
+<th class="head needs_col_title" data-col="title" scope="col"><p>Title</p></th>
+<th class="head needs_col_status" data-col="status" scope="col"><p>Status</p></th>
+<th class="head needs_col_tags" data-col="tags" scope="col"><p>Tags</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="need row-even" data-need-id="REQ_LOG"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOG">REQ_LOG</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_title"><p>Log voltage samples</p></td>
+<td class="needs_status"><p>draft</p></td>
+<td class="needs_tags"><p>diagnostics</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="REQ_LOW_WARN"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOW_WARN">REQ_LOW_WARN</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_title"><p>Warn on low battery</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_tags"><p>warning<em>; </em>driver</p></td>
+</tr>
+<tr class="need row-even" data-need-id="REQ_SOC"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_SOC">REQ_SOC</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_title"><p>Report state of charge</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_tags"><p>soc<em>; </em>display</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="SPEC_LOG_FORMAT"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOG_FORMAT">SPEC_LOG_FORMAT</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_title"><p>Sample log format</p></td>
+<td class="needs_status"><p>draft</p></td>
+<td class="needs_tags"><p>diagnostics</p></td>
+</tr>
+<tr class="need row-even" data-need-id="SPEC_LOW_THRESHOLD"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOW_THRESHOLD">SPEC_LOW_THRESHOLD</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_title"><p>Low threshold of 12000 mV</p></td>
+<td class="needs_status"><p>accepted</p></td>
+<td class="needs_tags"><p>warning</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="SPEC_SOC_LINEAR"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_SOC_LINEAR">SPEC_SOC_LINEAR</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_title"><p>Linear voltage to SOC mapping</p></td>
+<td class="needs_status"><p>accepted</p></td>
+<td class="needs_tags"><p>soc</p></td>
+</tr>
+<tr class="need row-even" data-need-id="TC_LOW_BELOW"><td class="needs_id"><p><a class="reference internal" href="requirements/tests.html#TC_LOW_BELOW">TC_LOW_BELOW</a></p></td>
+<td class="needs_type"><p>test</p></td>
+<td class="needs_title"><p>Low warning below threshold</p></td>
+<td class="needs_status"><p>passed</p></td>
+<td class="needs_tags"><p></p></td>
+</tr>
+<tr class="need row-odd" data-need-id="TC_LOW_EDGE"><td class="needs_id"><p><a class="reference internal" href="requirements/tests.html#TC_LOW_EDGE">TC_LOW_EDGE</a></p></td>
+<td class="needs_type"><p>test</p></td>
+<td class="needs_title"><p>No warning at threshold</p></td>
+<td class="needs_status"><p>open</p></td>
+<td class="needs_tags"><p></p></td>
+</tr>
+<tr class="need row-even" data-need-id="TC_SOC_CLAMP"><td class="needs_id"><p><a class="reference internal" href="requirements/tests.html#TC_SOC_CLAMP">TC_SOC_CLAMP</a></p></td>
+<td class="needs_type"><p>test</p></td>
+<td class="needs_title"><p>SOC clamps outside range</p></td>
+<td class="needs_status"><p>passed</p></td>
+<td class="needs_tags"><p></p></td>
+</tr>
+<tr class="need row-odd" data-need-id="TC_SOC_RANGE"><td class="needs_id"><p><a class="reference internal" href="requirements/tests.html#TC_SOC_RANGE">TC_SOC_RANGE</a></p></td>
+<td class="needs_type"><p>test</p></td>
+<td class="needs_title"><p>SOC at mid range</p></td>
+<td class="needs_status"><p>passed</p></td>
+<td class="needs_tags"><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="needs-tagged-warning">
+<h2>Needs tagged warning<a class="headerlink" href="#needs-tagged-warning" title="Link to this heading"></a></h2>
+<div class="needstable_wrapper docutils container" id="needtable-traceability-3">
+<table class="NEEDS_TABLE docutils align-default" id="needtable-traceability-3-table_node">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 20.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head needs_col_id" data-col="id" scope="col"><p>ID</p></th>
+<th class="head needs_col_type" data-col="type" scope="col"><p>Type</p></th>
+<th class="head needs_col_title" data-col="title" scope="col"><p>Title</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="need row-even" data-need-id="REQ_LOW_WARN"><td class="needs_id"><p><a class="reference internal" href="requirements/requirements.html#REQ_LOW_WARN">REQ_LOW_WARN</a></p></td>
+<td class="needs_type"><p>req</p></td>
+<td class="needs_title"><p>Warn on low battery</p></td>
+</tr>
+<tr class="need row-odd" data-need-id="SPEC_LOW_THRESHOLD"><td class="needs_id"><p><a class="reference internal" href="requirements/specifications.html#SPEC_LOW_THRESHOLD">SPEC_LOW_THRESHOLD</a></p></td>
+<td class="needs_type"><p>spec</p></td>
+<td class="needs_title"><p>Low threshold of 12000 mV</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="traceability-graph">
+<h2>Traceability graph<a class="headerlink" href="#traceability-graph" title="Link to this heading"></a></h2>
+<figure class="align-center" id="needflow-traceability-1">
+<div class="graphviz"><img src="_images/needflow-a87ad5926715c36b45572563709018b8e9b73610.png" alt="needflow graphviz diagram" usemap="#needflow" class="graphviz" /></div>
+<map id="needflow" name="needflow">
+<area shape="rect" id="node1" href="requirements/requirements.html#REQ_SOC" target="_top" title="REQ_SOC" alt="" coords="218,215,415,303"/>
+<area shape="rect" id="node2" href="requirements/requirements.html#REQ_LOW_WARN" target="_top" title="REQ_LOW_WARN" alt="" coords="891,215,1059,303"/>
+<area shape="rect" id="node3" href="requirements/requirements.html#REQ_LOG" target="_top" title="REQ_LOG" alt="" coords="1328,215,1489,303"/>
+<area shape="rect" id="node4" href="requirements/specifications.html#SPEC_SOC_LINEAR" target="_top" title="SPEC_SOC_LINEAR" alt="" coords="5,5,215,93"/>
+<area shape="rect" id="node5" href="requirements/specifications.html#SPEC_LOW_THRESHOLD" target="_top" title="SPEC_LOW_THRESHOLD" alt="" coords="628,5,848,93"/>
+<area shape="rect" id="node6" href="requirements/specifications.html#SPEC_LOG_FORMAT" target="_top" title="SPEC_LOG_FORMAT" alt="" coords="1316,5,1501,93"/>
+<area shape="rect" id="node7" href="requirements/tests.html#TC_SOC_RANGE" target="_top" title="TC_SOC_RANGE" alt="" coords="238,5,395,93"/>
+<area shape="rect" id="node8" href="requirements/tests.html#TC_SOC_CLAMP" target="_top" title="TC_SOC_CLAMP" alt="" coords="419,5,604,93"/>
+<area shape="rect" id="node9" href="requirements/tests.html#TC_LOW_BELOW" target="_top" title="TC_LOW_BELOW" alt="" coords="871,5,1079,93"/>
+<area shape="rect" id="node10" href="requirements/tests.html#TC_LOW_EDGE" target="_top" title="TC_LOW_EDGE" alt="" coords="1104,5,1292,93"/>
+</map><figcaption>
+<p><span class="caption-text">Battery monitor traceability</span><a class="headerlink" href="#needflow-traceability-1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="requirement-list">
+<h2>Requirement list<a class="headerlink" href="#requirement-list" title="Link to this heading"></a></h2>
+<div class="line-block" id="needlist-traceability-0">
+<div class="line"><a class="reference external" href="requirements/requirements.html#REQ_SOC">REQ_SOC: Report state of charge (open) [soc; display]</a></div>
+<div class="line"><a class="reference external" href="requirements/requirements.html#REQ_LOW_WARN">REQ_LOW_WARN: Warn on low battery (open) [warning; driver]</a></div>
+<div class="line"><a class="reference external" href="requirements/requirements.html#REQ_LOG">REQ_LOG: Log voltage samples (draft) [diagnostics]</a></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="requirements/tests.html" class="btn btn-neutral float-left" title="Test Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="coverage.html" class="btn btn-neutral float-right" title="Coverage Gaps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, TekTutor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
