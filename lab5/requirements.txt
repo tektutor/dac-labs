@@ -1,0 +1,14 @@
+# Sphinx 9.2 needs Python 3.13 or later. Sphinx 8.2 runs on Python 3.11
+# to 3.14, which lets the CI matrix cover three Python versions.
+sphinx==8.2.3
+sphinx-needs==9.1.0
+sphinx-rtd-theme==3.1.0
+sphinxcontrib-spelling==8.0.2
+sphinxcontrib-plantuml==0.31
+sphinx-test-reports
+pytest-cov
+matplotlib
+breathe==5.1.0
+exhale==0.3.7
+matplotlib==3.10.7
+pytest==8.4.2
