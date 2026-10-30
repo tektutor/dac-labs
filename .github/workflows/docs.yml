@@ -1,0 +1,99 @@
+name: docs
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check (Python ${{ matrix.python }})
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: true
+      matrix:
+        python: ["3.12", "3.13", "3.14"]
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - name: Install system tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            doxygen graphviz libenchant-2-2 hunspell-en-us \
+            g++ default-jdk-headless
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Run all checks
+        run: make check
+
+      - name: Link check
+        if: matrix.python == '3.14'
+        run: make linkcheck
+
+      - name: Upload site for GitHub Pages
+        if: matrix.python == '3.14'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs/_build/html
+
+  pdf:
+    needs: check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.14"
+          cache: pip
+          cache-dependency-path: requirements.txt
+          
+      - name: Install system tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            doxygen graphviz plantuml default-jre-headless latexmk \
+            texlive-latex-recommended texlive-latex-extra \
+            texlive-fonts-recommended tex-gyre
+
+      - name: Install Python packages
+        run: pip install -r requirements.txt
+
+      - name: Build PDF
+        run: make pdf
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: battery-monitor-pdf
+          path: docs/_build/latex/battery-monitor.pdf
+
+  deploy:
+    needs: check
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
