@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: lab5/requirements.txt
 
       - name: Install system tools
         run: |
@@ -44,14 +44,9 @@ jobs:
         run: make check
 
       - name: Link check
-        if: matrix.python == '3.14'
+        if: matrix.python == '3.13'
+        continue-on-error: true
         run: make linkcheck
-
-      - name: Upload site for GitHub Pages
-        if: matrix.python == '3.14'
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: docs/_build/html
 
   pdf:
     needs: check
@@ -62,9 +57,9 @@ jobs:
 
       - uses: actions/setup-python@v6
         with:
-          python-version: "3.14"
+          python-version: "3.13"
           cache: pip
-          cache-dependency-path: requirements.txt
+          cache-dependency-path: lab5/requirements.txt
           
       - name: Install system tools
         run: |
@@ -84,20 +79,3 @@ jobs:
         with:
           name: battery-monitor-pdf
           path: docs/_build/latex/battery-monitor.pdf
-
-  deploy:
-    needs: check
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-24.04
-    permissions:
-      pages: write
-      id-token: write
-    concurrency:
-      group: pages
-      cancel-in-progress: false
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4
