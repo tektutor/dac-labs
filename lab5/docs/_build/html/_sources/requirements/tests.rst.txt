@@ -30,7 +30,7 @@ Each test case below has a matching function in ``tests/test_monitor.py``.
 .. test:: No warning at threshold
    :id: TC_LOW_EDGE
    :verifies: REQ_LOW_WARN
-   :result: passed
+   :result: not_run
    :source: tests/test_monitor.py
 
    Feed exactly 12000 mV. Expect no low warning.

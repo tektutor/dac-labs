@@ -33,23 +33,20 @@ pipeline {
 	stages {
 		stage('Install') {
 			steps {
-			   dir("lab5") {
 				sh '''
 					python3 -m venv "$VENV"
 					pip install --upgrade pip
 					pip install -r requirements.txt
 				    '''
-			   } 
 			}
 		}
 
 	stage('Check') {
 
 		steps { 
-		   dir("lab5") {
-			sh 'make check' 
+			
+			dir('lab5') { sh 'make check' } 
 		   }
-		}
 	}
 
 	stage('Link check') {
@@ -57,19 +54,15 @@ pipeline {
 		// but let it mark the build UNSTABLE instead of FAILED.
 		steps {
 			catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
-			    dir("lab5") {
-				sh 'make linkcheck'
+				dir('lab5') { sh 'make linkcheck' }
 			    }
-	  		}			
 		}
 	}
 
 	stage('PDF') {
 		when { branch 'main' }
 		steps { 
-		   dir("lab5") {
-			sh 'make pdf' 
-		   }
+			dir('lab5') { sh 'make pdf' } 
 		}
 	}
 
@@ -78,12 +71,12 @@ pipeline {
 		when { branch 'main' }
 		steps {
 			sshagent(credentials: ['docs-server-ssh']) {
-			   dir("lab5") {
+			        dir('lab5') {
 				sh '''
 					rsync -az --delete docs/_build/html/ \
 					deploy@docs.internal.example.com:/var/www/bms/
 				'''
-			   }
+				}
 			}
 		}
 	}	

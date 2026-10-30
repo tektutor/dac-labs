@@ -1,22 +1,6 @@
 {
-  "validation_summary": "Schema validation completed with 1 warning(s) in 0.001 seconds. Validated 11453 needs/s.",
-  "validated_needs_per_second": 11453,
+  "validation_summary": "Schema validation completed with 0 warning(s) in 0.001 seconds. Validated 11069 needs/s.",
+  "validated_needs_per_second": 11069,
   "validated_needs_count": 12,
-  "validation_warnings": {
-    "TC_LOW_EDGE": [
-      {
-        "log_lvl": "error",
-        "type": "sn_schema_violation",
-        "subtype": "field_fail",
-        "details": {
-          "severity": "violation",
-          "field": "result",
-          "need_path": "TC_LOW_EDGE",
-          "schema_path": "fields > schema > properties > result > enum",
-          "validation_msg": "\"passed\" is not one of \"pass\", \"fail\" or \"not_run\""
-        },
-        "children": []
-      }
-    ]
-  }
+  "validation_warnings": {}
 }
