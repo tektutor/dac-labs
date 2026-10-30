@@ -8,6 +8,10 @@ on:
 permissions:
   contents: read
 
+defaults:
+  run:
+    working-directory: lab5
+
 jobs:
   check:
     name: check (Python ${{ matrix.python }})
