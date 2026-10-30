@@ -1,0 +1,108 @@
+// Docs-as-Code pipeline for teams behind a firewall.
+// It runs the same make targets as the GitHub Actions workflow.
+//
+// Agent packages (install once on the build node or bake into an image):
+//	python3, python3-venv, make, doxygen, graphviz, libenchant-2-2,
+//	hunspell-en-us, g++, default-jdk-headless
+// PDF stage only: plantuml, latexmk, texlive-latex-recommended,
+// texlive-latex-extra, texlive-fonts-recommended, tex-gyre
+//
+// Jenkins plugins: Pipeline, Git, Workspace Cleanup, HTML Publisher,
+// SSH Agent (deploy stage only).
+
+pipeline {
+	agent { label 'docs' }
+
+	options {
+		timeout(time: 30, unit: 'MINUTES')
+		disableConcurrentBuilds()
+		buildDiscarder(logRotator(numToKeepStr: '20'))
+		timestamps()
+	}
+
+	environment {
+		// Internal PyPI mirror. Delete both lines if the agent reaches pypi.org.
+		PIP_INDEX_URL = 'https://pypi.internal.example.com/simple'
+		PIP_TRUSTED_HOST = 'pypi.internal.example.com'
+		// A cache folder outside the workspace survives between builds.
+		PIP_CACHE_DIR = "${env.HOME}/.cache/pip-docs"
+		VENV = "${env.WORKSPACE}/.venv"
+		PATH = "${env.WORKSPACE}/.venv/bin:${env.PATH}"
+	}
+
+	stages {
+		stage('Install') {
+			steps {
+			   dir("lab5") {
+				sh '''
+					python3 -m venv "$VENV"
+					pip install --upgrade pip
+					pip install -r requirements.txt
+				    '''
+			   } 
+			}
+		}
+
+	stage('Check') {
+
+		steps { 
+		   dir("lab5") {
+			sh 'make check' 
+		   }
+		}
+	}
+
+	stage('Link check') {
+		// Many internal networks block outbound HTTPS. Keep the stage,
+		// but let it mark the build UNSTABLE instead of FAILED.
+		steps {
+			catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+			    dir("lab5") {
+				sh 'make linkcheck'
+			    }
+	  		}			
+		}
+	}
+
+	stage('PDF') {
+		when { branch 'main' }
+		steps { 
+		   dir("lab5") {
+			sh 'make pdf' 
+		   }
+		}
+	}
+
+	stage('Deploy') {
+		// Runs after a merge to main, never for a pull request build.
+		when { branch 'main' }
+		steps {
+			sshagent(credentials: ['docs-server-ssh']) {
+			   dir("lab5") {
+				sh '''
+					rsync -az --delete docs/_build/html/ \
+					deploy@docs.internal.example.com:/var/www/bms/
+				'''
+			   }
+			}
+		}
+	}	
+}
+post {
+	always {
+		archiveArtifacts artifacts: 'lab5/docs/_build/latex/*.pdf',
+			allowEmptyArchive: true
+		publishHTML(target: [
+		reportDir: 'lab5/docs/_build/html',
+		reportFiles: 'index.html',
+		reportName: 'Documentation',
+		keepAll: true,
+		allowMissing: true,
+		alwaysLinkToLastBuild: true
+	])
+}
+cleanup {
+	cleanWs(patterns: [[pattern: '.venv/**', type: 'EXCLUDE']])
+}
+}
+}
